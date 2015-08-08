@@ -1,7 +1,0 @@
-E:\Documents\GitHub\AucklandTransportApp\ATApi\bin\Debug\ApiToAT.dll
-E:\Documents\GitHub\AucklandTransportApp\ATApi\bin\Debug\ApiToAT.pdb
-E:\Documents\GitHub\AucklandTransportApp\ATApi\bin\Debug\Newtonsoft.Json.dll
-E:\Documents\GitHub\AucklandTransportApp\ATApi\bin\Debug\Newtonsoft.Json.xml
-E:\Documents\GitHub\AucklandTransportApp\ATApi\obj\Debug\ApiToAT.csprojResolveAssemblyReference.cache
-E:\Documents\GitHub\AucklandTransportApp\ATApi\obj\Debug\ApiToAT.dll
-E:\Documents\GitHub\AucklandTransportApp\ATApi\obj\Debug\ApiToAT.pdb

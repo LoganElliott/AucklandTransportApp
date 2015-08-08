@@ -1,7 +1,0 @@
-e:\documents\visual studio 2013\Projects\AucklandTransportApp\ATApi\bin\Debug\ATApi.dll
-e:\documents\visual studio 2013\Projects\AucklandTransportApp\ATApi\bin\Debug\ATApi.pdb
-e:\documents\visual studio 2013\Projects\AucklandTransportApp\ATApi\bin\Debug\Newtonsoft.Json.dll
-e:\documents\visual studio 2013\Projects\AucklandTransportApp\ATApi\bin\Debug\Newtonsoft.Json.xml
-e:\documents\visual studio 2013\Projects\AucklandTransportApp\ATApi\obj\Debug\ATApi.csprojResolveAssemblyReference.cache
-e:\documents\visual studio 2013\Projects\AucklandTransportApp\ATApi\obj\Debug\ATApi.dll
-e:\documents\visual studio 2013\Projects\AucklandTransportApp\ATApi\obj\Debug\ATApi.pdb
