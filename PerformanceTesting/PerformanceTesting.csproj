@@ -48,7 +48,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ATApi\ApiToAT.csproj">
+    <ProjectReference Include="..\ApiToAT\ApiToAT.csproj">
       <Project>{3c4725e2-0181-4056-b07d-1169d0919250}</Project>
       <Name>ApiToAT</Name>
     </ProjectReference>
