@@ -4,11 +4,11 @@ namespace ApiToAT.DataClasses
 {
     public class Shape
     {
-        internal int ShapeId { get; set; }
+        public int ShapeId { get; set; }
 
-        internal List<Coordinate> Coordinate { get; set; }
+        public List<Coordinate> Coordinate { get; set; }
 
-        internal Shape(int shapeId)
+        public Shape(int shapeId)
         {
             ShapeId = shapeId;
             Coordinate = new List<Coordinate>();

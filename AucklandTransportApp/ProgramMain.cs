@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ApiToAT.DataClasses;
 using Nancy;
 using Nancy.Json;
@@ -17,6 +18,10 @@ namespace AucklandTransportApp
             Get["/busStopId={busStopId}"] = parameters =>
             {
                 string busStopId = parameters.busStopId.ToString();
+                if (!atApi.CheckValidBusId(busStopId))
+                {
+                    return "";
+                }
                 IEnumerable<Route>  routes = atApi.GetRoutesFromId(busStopId);
                 routes = atApi.AddShapesToRoute(routes);
                 routes = atApi.GetAllShapesCoordinatesFromShapeId(routes);

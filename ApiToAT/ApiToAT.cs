@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ApiToAT.DataClasses;
 using ApiToAT.HelperClasses;
 
@@ -12,6 +13,12 @@ namespace ApiToAT
         public ApiToAT(string apiKey,string apiUrl)
         {
             _atApiCredentials = new AtApiCredentials(apiKey, apiUrl);
+        }
+
+        public bool CheckValidBusId(string stopId)
+        {
+            return
+                Utilities.GetIEnumerableJsonApiResponse(_atApiCredentials, "gtfs", "stops", "stopid", stopId).Any();
         }
 
         public IEnumerable<Route> GetRoutesFromId(string stopId)
