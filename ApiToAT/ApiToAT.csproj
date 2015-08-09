@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiToAT.cs" />
+    <Compile Include="DataClasses\BusStop.cs" />
     <Compile Include="HelperClasses\ATApiCredentials.cs" />
     <Compile Include="DataClasses\Coordinate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

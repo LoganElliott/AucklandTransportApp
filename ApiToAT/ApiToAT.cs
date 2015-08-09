@@ -15,10 +15,12 @@ namespace ApiToAT
             _atApiCredentials = new AtApiCredentials(apiKey, apiUrl);
         }
 
-        public bool CheckValidBusId(string stopId)
+        public BusStop GetStopIdFromStopCode(BusStop busBusStop)
         {
-            return
-                Utilities.GetIEnumerableJsonApiResponse(_atApiCredentials, "gtfs", "stops", "stopid", stopId).Any();
+            var busStop = Utilities.GetIEnumerableJsonApiResponse(_atApiCredentials, "gtfs", "stops", "stopCode", busBusStop.StopCode).First();
+            var busStopId = busStop.Value<string>("stop_id") ?? "";
+            busBusStop.StopId = busStopId;
+            return busBusStop;
         }
 
         public IEnumerable<Route> GetRoutesFromId(string stopId)
@@ -37,14 +39,11 @@ namespace ApiToAT
         {
             foreach (var route in routes)
             {
-                var trips = Utilities.GetIEnumerableJsonApiResponse(_atApiCredentials,"gtfs", "trips", "routeid", route.RouteId);
+                var trip = Utilities.GetIEnumerableJsonApiResponse(_atApiCredentials,"gtfs", "trips", "routeid", route.RouteId).First();
+                var shapeId = int.Parse(trip["shape_id"].ToString());
+                route.Shape = new Shape(shapeId);
 
-                foreach (var trip in trips)
-                {
-                    var shapeId = int.Parse(trip["shape_id"].ToString());
-                    route.Shape = new Shape(shapeId);
-                    yield return route;
-                }
+                yield return route;
             }
         }
 
@@ -57,7 +56,7 @@ namespace ApiToAT
                 {
                     var latitude = double.Parse(shape["shape_pt_lat"].ToString());
                     var longitude = double.Parse(shape["shape_pt_lon"].ToString());
-                    route.Shape.Coordinate.Add(new Coordinate(latitude, longitude));
+                    route.Shape.Coordinates.Add(new Coordinate(latitude, longitude));
                 }
                     yield return route;
             }

@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using ApiToAT.DataClasses;
 using Nancy;
 using Nancy.Json;
@@ -15,19 +14,23 @@ namespace AucklandTransportApp
         {
             var atApi = new ApiToAT.ApiToAT(ApiKey, ApiUrl);
             JsonSettings.MaxJsonLength = int.MaxValue;
-            Get["/busStopId={busStopId}"] = parameters =>
+            Get["/busStopCode={busStopCode}"] = parameters =>
             {
-                string busStopId = parameters.busStopId.ToString();
-                if (!atApi.CheckValidBusId(busStopId))
+                string busStopCode = parameters.busStopCode.ToString();
+                var busStop = new BusStop(busStopCode);
+                busStop = atApi.GetStopIdFromStopCode(busStop);
+                if (busStop.StopId.Length == 0)
                 {
                     return "";
                 }
-                IEnumerable<Route>  routes = atApi.GetRoutesFromId(busStopId);
+                IEnumerable<Route> routes = atApi.GetRoutesFromId(busStop.StopId);
                 routes = atApi.AddShapesToRoute(routes);
                 routes = atApi.GetAllShapesCoordinatesFromShapeId(routes);
-                return Response.AsJson(routes);
+                busStop.Routes = routes;
+                return Response.AsJson(busStop);
             };
 
+            Get["/"] = parameters => "Home Page";
         }
     }
 }

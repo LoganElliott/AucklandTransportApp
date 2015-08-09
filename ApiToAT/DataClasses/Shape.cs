@@ -6,12 +6,12 @@ namespace ApiToAT.DataClasses
     {
         public int ShapeId { get; set; }
 
-        public List<Coordinate> Coordinate { get; set; }
+        public List<Coordinate> Coordinates { get; set; }
 
         public Shape(int shapeId)
         {
             ShapeId = shapeId;
-            Coordinate = new List<Coordinate>();
+            Coordinates = new List<Coordinate>();
 
         }
     }
